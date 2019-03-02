@@ -1,0 +1,58 @@
+{
+  "author": "Danny Wahl <danny@iywahl.com>",
+  "name": "sentimony",
+  "description": "multi-lexicon sentiment & emotion analysis for Node.js",
+  "version": "0.0.1",
+  "license": "MIT",
+  "homepage": "https://github.com/thedannywahl/sentimony",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/thedannywahl/sentimony.git"
+  },
+  "keywords": [
+    "sentiment",
+    "nlp",
+    "sentiment analysis",
+    "natural language",
+    "emotion"
+  ],
+  "main": "./lib/index.js",
+  "scripts": {
+    "build:lexicon": "node ./build/build.js",
+    "build:afinn": "node ./build/AFINN/build.js",
+    "build:afinn-e": "node ./build/AFINN-E/build.js",
+    "build:bingliu": "node ./build/BingLiu/build.js",
+    "build:esr": "node ./build/ESR/build.js",
+    "build:mpqa": "node ./build/MPQA/build.js",
+    "build:nrc-ail": "node ./build/NRC-AIL/build.js",
+    "build:nrc-e": "node ./build/NRC-E/build.js",
+    "build:nrc-vad": "node ./build/NRC-VAD/build.js",
+    "build:sentiwordnet": "node ./build/SentiWordNet/build.js",
+    "build:pattern": "node ./build/Pattern/build.js",
+    "build:vader": "node ./build/VADER/build.js",
+    "build": "npm run build:afinn && npm run build:afinn-e && npm run build:bingliu && npm run build:esr && npm run build:mpqa && npm run build:nrc-ail && npm run build:nrc-e && npm run build:nrc-vad && npm run build:pattern && npm run build:sentiwordnet && npm run build:vader && npm run build:lexicon",
+    "test:lint": "eslint . --ext=js",
+    "test:unit": "tap test/unit/*.js",
+    "test:integration": "tap test/integration/*.js",
+    "test:benchmark": "node ./test/benchmark/performance.js",
+    "test:validate": "node ./test/benchmark/validate.js",
+    "test:coverage": "tap './test/{integration,unit}/*.js' --coverage --coverage-report=lcov",
+    "test": "npm run test:lint && npm run test:unit && npm run test:integration && npm run test:benchmark && npm run test:validate"
+  },
+  "devDependencies": {
+    "async": "^2.6.2",
+    "benchmark": "^2.1.0",
+    "csvtojson": "^2.0.8",
+    "eslint": "^5.0.1",
+    "fs": "0.0.1-security",
+    "mock-require": "^3.0.1",
+    "path": "^0.12.7",
+    "tap": "^12.0.1",
+    "xlsx-to-json": "^0.3.0"
+  },
+  "engines": {
+    "node": ">=11.10.0",
+    "npm": ">=6.8.0"
+  },
+  "dependencies": {}
+}
