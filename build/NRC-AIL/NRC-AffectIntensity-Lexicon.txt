@@ -1,0 +1,4 @@
+term	score	AffectDimension
+Warning The NRC license disallows redistribution of the datasets. They can be downloaded at http://sentiment.nrc.ca/lexicons-for-research/
+Warning This is only placeholder text to prevent sentimony builds from failing. You must replace this file with the actual data set.
+Warning Transformed versions of the lexicon are included in the Sentimony lexicon files. This only affects builds.
