@@ -4,3 +4,6 @@ languages
 lib
 package-lock.json
 .DS_Store
+build/NRC-AIL/NRC-AffectIntensity-Lexicon.txt
+build/NRC-E/NRC-Emotion-Lexicon-Wordlevel-v0.92.txt
+build/NRC-VAD/NRC-VAD-Lexicon.txt
