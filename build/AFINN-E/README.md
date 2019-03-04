@@ -23,7 +23,7 @@ The build file (`build.js`) reads the AFINN emoticon data source (`AFINN-emotico
 ```
 
 ### `AFINN-E.json`
-The AFINN data file does not contain a header row, so header values of `word` and `score` have been presumed.
+The AFINN data file does not contain a header row, so header values of `emoji` and `score` have been presumed.
 
 ```json
 [

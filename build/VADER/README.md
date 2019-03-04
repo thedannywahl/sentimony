@@ -24,7 +24,7 @@ $:	-1.5	0.80623	[-1, -1, -1, -1, -3, -1, -3, -1, -2, -1]
 %)	-0.4	1.0198	[-1, 0, -1, 0, 0, -2, -1, 2, -1, 0]
 ```
 
-### `pattern.json`
+### `VADER.json`
 The data source does not contain a header row so they are inferred from the source paper and added.
 ```json
 [
