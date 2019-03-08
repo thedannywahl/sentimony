@@ -11,14 +11,15 @@ words = words.match(/^.*/gm)
 for (line in words) {
   let entry = {}
   if((words[line] !== '') && (words[line] !== '#')) {
-    let terms = words[line].match(/\w+#\d/g)
+    let terms = []
+    terms = words[line].match(/(\w+|\S+)#\d+/g)
     words[line] = words[line].replace(/\w+#\d/g, '')
     let components = words[line].match(/[^\t]+/g)
     entry.POS = components[0]
     entry.ID = components[1]
     entry.PosScore = components[2]
     entry.NegScore = components[3]
-    if(terms) entry.SynsetTerms = terms
+    entry.SynsetTerms = terms
     entry.Gloss = components[4]
     jsonObj.push(entry)
   }
