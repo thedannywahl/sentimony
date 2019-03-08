@@ -28,6 +28,6 @@ for (line in negWords) {
   }
 }
 
-fs.writeFile(jsonFile, JSON.stringify(jsonObj), function(err){
+fs.writeFile(jsonFile, JSON.stringify(jsonObj, null, 2), function(err){
   if (err) return console.log(err)
 })

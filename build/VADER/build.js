@@ -12,7 +12,7 @@ csv({
   headers:["token", "mean-sentiment-rating", "standard-deviation", "raw-human-sentiment-ratings"]
 }).fromFile(csvFile)
   .then(jsonObj => {
-    fs.writeFile(jsonFile, JSON.stringify(jsonObj), function(err){
+    fs.writeFile(jsonFile, JSON.stringify(jsonObj, null, 2), function(err){
       if (err) throw err
     })
   })

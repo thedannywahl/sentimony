@@ -8,7 +8,7 @@ const jsonFile = path.resolve(__dirname, `${lexiconName}.json`)
 
 csv({delimiter: "	"}).fromFile(inputFile)
   .then(jsonObj => {
-    fs.writeFile(jsonFile, JSON.stringify(jsonObj), function(err){
+    fs.writeFile(jsonFile, JSON.stringify(jsonObj, null, 2), function(err){
       if (err) throw err
     })
   })
