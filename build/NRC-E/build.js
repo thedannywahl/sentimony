@@ -28,7 +28,7 @@ csv({noheader: true, delimiter: "	", headers: ["word", "emotion", "level"]})
       outputJson.push(hash[words[word]])
     }
 
-    fs.writeFile(jsonFile, JSON.stringify(outputJson), function(err){
+    fs.writeFile(jsonFile, JSON.stringify(outputJson, null, 2), function(err){
       if (err) throw err
     })
   })
