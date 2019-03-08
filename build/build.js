@@ -12,8 +12,18 @@ let formattedLexicon = {
   __metadata: {
     scale: [-1, 1],
     calculationMethods: {
-      normalized: () => {return null},
-      AFINN: () => {return null}
+      normalized: () => {},
+      AFINN: () => {},
+      AFINN_E: () => {},
+      BingLiu: () => {},
+      ESR: () => {},
+      MPQA: () => {},
+      NRC_AIL: () => {},
+      NRC_E: () => {},
+      NRC_VAD: () => {},
+      Pattern: () => {},
+      SentiWordNet: () => {},
+      VADER: () => {}
     }
   }
 }
@@ -32,13 +42,14 @@ fs.writeFile(rawJsonFile, JSON.stringify(rawLexicon), function(err){
 
 function Word(entry, lexicon, rawObj = {}) {
   this.normalized = {
-    sentiment: 'neutral',
-    isPositive: false,
-    isNegative: false,
-    isNeutral: true,
+    sentiment: '',
+    isPositive: null,
+    isNegative: null,
+    isNeutral: null,
     score: 0,
-    intensity: () => { return null },
+    intensity: () => {},
     emotion: {
+      rawEmotion: '',
       unicode: '',
       html: '',
       alt: '',
@@ -49,13 +60,13 @@ function Word(entry, lexicon, rawObj = {}) {
     entry: entry,
     language: 'en',
     foundIn: [],
-    certainty: () => {return null},
+    certainty: () => {},
     variants: [],
     synonyms: [],
     antonyms: [],
-    definition: "",
+    definition: '',
     part_of_speech: [],
-    hasMultipleEntries: false
+    hasMultipleEntries: null
   }
 
   this.entry = this.metadata.entry
