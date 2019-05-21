@@ -10,8 +10,8 @@ const jsonObj = []
 
 let posWords = posWordsFile.replace(/^;+.*/gm, '')
 posWords = posWords.match(/^.*/gm)
-for (line in posWords) {
-  if(posWords[line] !== '') {
+for (var line in posWords) {
+  if (posWords[line] !== '') {
     posWords[line] = `{"${posWords[line]}":"positive"}`
     posWords[line] = JSON.parse(posWords[line])
     jsonObj.push(posWords[line])
@@ -21,13 +21,13 @@ for (line in posWords) {
 let negWords = negWordsFile.replace(/^;+.*/gm, '')
 negWords = negWords.match(/^.*/gm)
 for (line in negWords) {
-  if(negWords[line] !== '') {
+  if (negWords[line] !== '') {
     negWords[line] = `{"${negWords[line]}":"negative"}`
     negWords[line] = JSON.parse(negWords[line])
     jsonObj.push(negWords[line])
   }
 }
 
-fs.writeFile(jsonFile, JSON.stringify(jsonObj, null, 2), function(err){
+fs.writeFile(jsonFile, JSON.stringify(jsonObj, null, 2), function (err) {
   if (err) return console.log(err)
 })

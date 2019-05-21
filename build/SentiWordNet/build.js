@@ -1,5 +1,5 @@
-const fs = require('fs');
-const path = require('path');
+const fs = require('fs')
+const path = require('path')
 const lexiconName = path.basename(path.resolve(__dirname))
 
 const jsonFile = path.resolve(__dirname, `${lexiconName}.json`)
@@ -8,9 +8,9 @@ const jsonObj = []
 
 let words = wordsFile.replace(/^#.+/gm, '')
 words = words.match(/^.*/gm)
-for (line in words) {
+for (var line in words) {
   let entry = {}
-  if((words[line] !== '') && (words[line] !== '#')) {
+  if ((words[line] !== '') && (words[line] !== '#')) {
     let terms = []
     terms = words[line].match(/(\w+|\S+)#\d+/g)
     words[line] = words[line].replace(/\w+#\d/g, '')
@@ -26,6 +26,6 @@ for (line in words) {
 }
 jsonObj.pop()
 
-fs.writeFile(jsonFile, JSON.stringify(jsonObj, null, 2), function(err){
+fs.writeFile(jsonFile, JSON.stringify(jsonObj, null, 2), function (err) {
   if (err) return console.log(err)
 })

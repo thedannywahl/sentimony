@@ -8,11 +8,11 @@ const jsonFile = path.resolve(__dirname, `${lexiconName}.json`)
 
 csv({
   noheader: true,
-  delimiter: "	",
-  headers:["token", "mean-sentiment-rating", "standard-deviation", "raw-human-sentiment-ratings"]
+  delimiter: '	', // eslint-disable-line no-tabs
+  headers: ['token', 'mean-sentiment-rating', 'standard-deviation', 'raw-human-sentiment-ratings']
 }).fromFile(csvFile)
   .then(jsonObj => {
-    fs.writeFile(jsonFile, JSON.stringify(jsonObj, null, 2), function(err){
+    fs.writeFile(jsonFile, JSON.stringify(jsonObj, null, 2), function (err) {
       if (err) throw err
     })
   })

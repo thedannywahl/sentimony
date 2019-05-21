@@ -9,7 +9,7 @@ const jsonObj = []
 const word = (...args) => {
   args = args[0]
   let entry = {}
-  for (i=0; i < args.length; i++) {
+  for (var i = 0; i < args.length; i++) {
     entry[Object.keys(args[i])] = Object.values(args[i])
     entry[Object.keys(args[i])] = entry[Object.keys(args[i])][0]
   }
@@ -17,18 +17,17 @@ const word = (...args) => {
 }
 
 const XMLWords = xmlFile.match(/^<word .*/gm)
-for (line in XMLWords) {
+for (var line in XMLWords) {
   let params = XMLWords[line].match(/\S+=["']?(?:.(?!["']?\s+(?:\S+)=|[>"']))+.["']?/g)
-  for (param in params) {
-
-    //TODO: Parse invalid JSON chars in 'sense' attributes
-    if(params[param].startsWith("sense")) params[param] = 'sense":"TODO"'
-    params[param] = params[param].replace(/=/g, "\":").replace(/\'/g, '\"')
+  for (var param in params) {
+    // TODO: Parse invalid JSON chars in 'sense' attributes
+    if (params[param].startsWith('sense')) params[param] = 'sense":"TODO"'
+    params[param] = params[param].replace(/=/g, '":').replace(/'/g, '"')
     params[param] = JSON.parse(`{"${params[param]}}`)
   }
   word(params)
 }
 
-fs.writeFile(jsonFile, JSON.stringify(jsonObj, null, 2), function(err){
+fs.writeFile(jsonFile, JSON.stringify(jsonObj, null, 2), function (err) {
   if (err) return console.log(err)
 })

@@ -9,8 +9,8 @@ const jsonObj = []
 const word = (...args) => {
   args = args[0]
   let entry = {}
-  if(args !== null) {
-    for (i=0; i < args.length; i++) {
+  if (args !== null) {
+    for (var i = 0; i < args.length; i++) {
       entry[Object.keys(args[i])] = Object.values(args[i])
       entry[Object.keys(args[i])] = entry[Object.keys(args[i])][0]
     }
@@ -19,19 +19,18 @@ const word = (...args) => {
 }
 
 const words = wordsFile.match(/^.*/gm)
-for (line in words) {
+for (var line in words) {
   let params = words[line].match(/\S+/g)
-  for (param in params) {
-    if(params[param] !== "m") {
-      params[param] = params[param].replace(/=/g, "\":\"")
+  for (var param in params) {
+    if (params[param] !== 'm') {
+      params[param] = params[param].replace(/=/g, '":"')
       params[param] = `{"${params[param]}"}`
       params[param] = JSON.parse(params[param])
     }
   }
   word(params)
-
 }
 
-fs.writeFile(jsonFile, JSON.stringify(jsonObj, null, 2), function(err){
+fs.writeFile(jsonFile, JSON.stringify(jsonObj, null, 2), function (err) {
   if (err) return console.log(err)
 })
