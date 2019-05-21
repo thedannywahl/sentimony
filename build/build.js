@@ -162,9 +162,13 @@ for (var lexicon in rawLexicon) {
         )
         break
       case 'VADER':
-        mergeWord(rawLexicon[lexicon][entry].token, rawLexicon[lexicon][entry], lexicon)
+        mergeWord(
+          rawLexicon[lexicon][entry].token,
+          rawLexicon[lexicon][entry],
+          lexicon
+        )
         break
-      default:
+      default: throw new ReferenceError(`Lexicon ${lexicon} is not defined."`)
     }
   }
 }
