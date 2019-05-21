@@ -40,19 +40,19 @@
     "test": "npm run test:lint && npm run test:unit && npm run test:integration && npm run test:benchmark && npm run test:validate"
   },
   "devDependencies": {
-    "async": "^2.6.2",
-    "benchmark": "^2.1.0",
+    "async": "^3.0.0",
+    "benchmark": "^2.1.4",
     "csvtojson": "^2.0.8",
-    "eslint": "^5.0.1",
-    "fs": "0.0.1-security",
-    "mock-require": "^3.0.1",
+    "eslint": "^5.16.0",
+    "fs": "0.0.2",
+    "mock-require": "^3.0.3",
     "path": "^0.12.7",
-    "tap": "^12.0.1",
+    "tap": "^14.1.2",
     "xlsx-to-json": "^0.3.0"
   },
   "engines": {
-    "node": ">=11.10.0",
-    "npm": ">=6.8.0"
+    "node": ">=12.0.0",
+    "npm": ">=6.9.0"
   },
   "dependencies": {}
 }
